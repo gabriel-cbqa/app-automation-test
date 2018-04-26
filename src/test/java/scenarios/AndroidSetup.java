@@ -19,9 +19,9 @@ public class AndroidSetup {
         File appDir = new File("apps/");
         File app = new File(appDir, "ApiDemos-debug.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability("deviceName", "Google Pixel 2 API 23");
+        capabilities.setCapability("deviceName", "testEmu2");
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion","6.0");
+        capabilities.setCapability("platformVersion","4.3");
         //capabilities.setCapability("appPackage","io.appium.android.apis");
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("skipUnlock","true");
