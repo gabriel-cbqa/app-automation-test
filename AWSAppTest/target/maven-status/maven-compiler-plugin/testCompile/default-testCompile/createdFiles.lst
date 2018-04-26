@@ -1,0 +1,4 @@
+pages\MainActivityMenuClick.class
+pages\BasePage.class
+scenarios\AppiumTest.class
+scenarios\AndroidSetup.class

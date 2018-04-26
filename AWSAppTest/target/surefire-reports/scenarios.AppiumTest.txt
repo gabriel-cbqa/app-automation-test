@@ -1,0 +1,12 @@
+-------------------------------------------------------------------------------
+Test set: scenarios.AppiumTest
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 32.283 sec <<< FAILURE!
+mainActivityMenuClick(scenarios.AppiumTest)  Time elapsed: 16.245 sec  <<< FAILURE!
+java.lang.AssertionError: expected:<false> but was:<true>
+	at org.testng.Assert.fail(Assert.java:89)
+	at org.testng.Assert.failNotEquals(Assert.java:489)
+	at org.testng.Assert.assertFalse(Assert.java:58)
+	at org.testng.Assert.assertFalse(Assert.java:68)
+	at scenarios.AppiumTest.mainActivityMenuClick(AppiumTest.java:26)
+
