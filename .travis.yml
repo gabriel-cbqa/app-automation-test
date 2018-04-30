@@ -2,6 +2,6 @@ language: java
 java:
   - "1.8"
 before_script: 
-  -npm install -g appium
-  -appium
+  - npm install -g appium
+  - appium
 script: mvn clean test
