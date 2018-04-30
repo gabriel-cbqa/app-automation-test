@@ -1,4 +1,5 @@
 language: java
 java:
   - "1.8"
+before_script: appium
 script: mvn clean test
