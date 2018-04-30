@@ -19,6 +19,6 @@ matrix:
       
   - language: node_js
     before_script:
-      - sudo apt update -y
+      - npm install npm@latest -g
       - npm install -g appium
       - appium
