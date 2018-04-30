@@ -21,8 +21,8 @@ public class MainActivityMenuClick
     List<WebElement> menu2Items;
     public MainActivityMenuClick(AndroidDriver driver)
     {
-        this.driver = driver;
-        mainMenu = By.id("android:id/text1");
+        this.driver = driver; //getting android driver
+        mainMenu = By.id("android:id/text1"); 
         menuItems=driver.findElementsById("android:id/text1");
     }
 
