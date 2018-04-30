@@ -26,7 +26,7 @@ public class AndroidSetup {
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("skipUnlock","true");
         //capabilities.setCapability("appActivity",".MainActivity");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
     }
 }
