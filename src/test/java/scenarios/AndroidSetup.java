@@ -21,7 +21,7 @@ public class AndroidSetup {
         DesiredCapabilities capabilities = new DesiredCapabilities();
         capabilities.setCapability("deviceName", "testEmu2");
         capabilities.setCapability("platformName", "Android");
-        capabilities.setCapability("platformVersion","4.3");
+        capabilities.setCapability("platformVersion","5.0");
         //capabilities.setCapability("appPackage","io.appium.android.apis");
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("skipUnlock","true");
