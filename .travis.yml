@@ -7,7 +7,9 @@ android:
     - addon
     - sys-img-armeabi-v7a-android-22
 before_script: 
-  - sudo apt-get install -y nodejs
+  - git clone https://github.com/Linuxbrew/brew.git ~/.linuxbrew
+  - export PATH="$HOME/.linuxbrew/bin:$PATH"
+  - brew install node
   - npm install -g appium
   - appium
   - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
