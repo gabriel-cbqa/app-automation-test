@@ -1,7 +1,16 @@
-language: java
-java:
-  - "1.8"
+language: android
+android:
+  components:
+    - build-tools-22.0.1
+    - android-21
+    - extra
+    - addon
+    - sys-img-armeabi-v7a-android-21
 before_script: 
+  - echo no | android create avd --force -n testEmu2 -t android-21 --abi default/x86
+  - emulator -avd testEmu2 -no-skin -no-audio -no-window &
+  - android-wait-for-emulator
+  - adb shell input keyevent 82 &
   - npm install -g appium
   - appium
 script: mvn clean test
