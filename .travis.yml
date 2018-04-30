@@ -9,8 +9,6 @@ matrix:
         - addon
         - sys-img-armeabi-v7a-android-22
     before_script: 
-      - npm install -g appium
-      - appium
       - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
       - emulator -avd testEmu2 -no-skin -no-audio -no-window &
       - android-wait-for-emulator
@@ -20,3 +18,6 @@ matrix:
       - mvn clean test
       
   - language: node_js
+    before_script:
+      - npm install -g appium
+      - appium
