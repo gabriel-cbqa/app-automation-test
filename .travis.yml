@@ -18,6 +18,8 @@ matrix:
       - mvn clean test
       
   - language: node_js
+    node_js:
+      - "6"
     before_script:
       - npm install npm@latest -g
       - npm install -g appium
