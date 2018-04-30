@@ -19,6 +19,6 @@ matrix:
       
   - language: node_js
     before_script:
-      - npm update -g 
+      - nvm update -g 
       - npm install -g appium
       - appium
