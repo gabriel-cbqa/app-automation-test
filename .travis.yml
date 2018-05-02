@@ -23,6 +23,8 @@ matrix:
       - adb shell input keyevent 82 &
       - appium &
     script:
+      - cp /target/surefire-reports/emailable-report.html /home/travis/screenshots/
+      - zip /home/travis/screenshots/
       - mvn clean test
       - ls /home/travis/screenshots/ -a
     before_deploy:
@@ -32,6 +34,7 @@ matrix:
       provider: releases
       api_key:
         secure: KEY
+      file: /home/travis/screenshots.zip
       skip_cleanup: true
       on:
         tags: true
