@@ -13,7 +13,6 @@ matrix:
       - export ANDROID_HOME=/usr/local/android-sdk/
       - nvm install 6
     before_script:
-      - mkdir /home/travis/screenshots/
       - npm install -g appium
       - npm install -g appium-doctor
       - appium-doctor
@@ -38,4 +37,3 @@ matrix:
 notifications:
   email:
     - gabriel@cbqasolutions.com
-
