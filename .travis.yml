@@ -24,6 +24,5 @@ matrix:
     node_js:
       - "6"
     before_script:
-      - npm install npm@latest -g
       - npm install -g appium
       - npm install -g appium-doctor
