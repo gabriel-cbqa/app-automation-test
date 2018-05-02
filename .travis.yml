@@ -1,6 +1,8 @@
 matrix:
   include:
-  - language: android
+  - language: java
+    java:
+      - "1.8"
     android:
       components:
         - build-tools-22.0.1
@@ -8,14 +10,15 @@ matrix:
         - extra
         - addon
         - sys-img-armeabi-v7a-android-22
-    before_script:
+    before_install:
       - export PATH=$PATH:$JAVA_HOME/bin
       - export ANDROID_HOME=/usr/local/android-sdk/
+    before_script:
       - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
       - emulator -avd testEmu2 -no-skin -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
-    after_script:
+    script:
       - mvn clean test
       
   - language: node_js
@@ -27,3 +30,4 @@ matrix:
       - npm install -g appium-doctor
       - appium-doctor
       - appium 
+
