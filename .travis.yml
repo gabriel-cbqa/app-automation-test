@@ -13,6 +13,7 @@ matrix:
       - export ANDROID_HOME=/usr/local/android-sdk/
       - nvm install 6
     before_script:
+      - mkdir ~/screenshots/
       - npm install -g appium
       - npm install -g appium-doctor
       - appium-doctor
@@ -22,9 +23,18 @@ matrix:
       - adb shell input keyevent 82 &
       - appium &
     script:
-      - mkdir ~/screenshots/
       - mvn clean test
       - ls ~/screenshots/ -a
+    before_deploy:
+      - gem install travis
+      - travis encrypt KEY="cb4f40eee4d81ccff41361badab2f447e58ec2e8"
+    deploy:
+      provider: releases
+      api_key:
+        secure: KEY
+      skip_cleanup: true
+      on:
+        tags: true
 notifications:
   email:
     - gabriel@cbqasolutions.com
