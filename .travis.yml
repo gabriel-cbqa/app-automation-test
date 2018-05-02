@@ -9,22 +9,21 @@ matrix:
         - addon
         - sys-img-armeabi-v7a-android-22
     before_script:
-      - npm install npm@latest -g
-      - npm install -g appium
-      - npm install -g appium-doctor
       - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
       - emulator -avd testEmu2 -no-skin -no-audio -no-window &
       - android-wait-for-emulator
       - adb shell input keyevent 82 &
       - export PATH=$PATH:$JAVA_HOME/bin
       - export ANDROID_HOME=/usr/local/android-sdk/
-      - appium-doctor
-      - appium
-    script: 
+    after_script:
       - mvn clean test
       
   - language: node_js
     node_js:
       - "6"
-    before_script:
-      
+    script:
+      - npm install npm@latest -g
+      - npm install -g appium
+      - npm install -g appium-doctor
+      - appium-doctor
+      - appium 
