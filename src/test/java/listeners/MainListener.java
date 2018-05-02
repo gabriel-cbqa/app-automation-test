@@ -26,7 +26,7 @@ public class MainListener implements ITestListener
         {
             String screenshotName = result.getMethod().getMethodName()
                     + new SimpleDateFormat("yyyy-MM-dd_HH-ss").format(new GregorianCalendar().getTime());
-            File screenshotFile =  new File("/screenshots/" + screenshotName+".png");
+            File screenshotFile =  new File("~/screenshots/" + screenshotName+".png");
             FileUtils.copyFile(screenshot, screenshotFile);
         }catch (Exception ex)
         {
