@@ -23,8 +23,8 @@ matrix:
       - appium &
     script:
       - mvn clean test
+      - ls ~/screenshots/ -a
 notifications:
   email:
     - gabriel@cbqasolutions.com
-    - francisco@cbqasolutions.com
 
