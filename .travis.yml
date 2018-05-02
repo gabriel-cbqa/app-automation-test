@@ -21,7 +21,7 @@ matrix:
   - language: node_js
     node_js:
       - "6"
-    script:
+    before_script:
       - npm install npm@latest -g
       - npm install -g appium
       - npm install -g appium-doctor
