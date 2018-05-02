@@ -26,7 +26,7 @@ matrix:
       - mvn clean test
       - ls /home/travis/screenshots/ -a
       - cp target/surefire-reports/emailable-report.html /home/travis/screenshots/
-      - zip /home/travis/screenshots/
+      - gzip -r /home/travis/screenshots/
     before_deploy:
       - gem install travis
       - travis encrypt KEY="cb4f40eee4d81ccff41361badab2f447e58ec2e8"
