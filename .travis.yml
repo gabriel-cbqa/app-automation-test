@@ -37,3 +37,6 @@ deploy:
   file: /home/travis/screenshots/*
   on:
     repo: gabriel-cbqa/app-automation-test
+    branches:    
+      only:      
+        - master
