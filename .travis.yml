@@ -29,7 +29,7 @@ matrix:
       - gzip -r /home/travis/screenshots/
     deploy:
       provider: releases
-      api_key: "cb4f40eee4d81ccff41361badab2f447e58ec2e8"
+      api_key: cb4f40eee4d81ccff41361badab2f447e58ec2e8
       file: /home/travis/screenshots.zip
       skip_cleanup: true
       on:
