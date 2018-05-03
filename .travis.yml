@@ -3,38 +3,37 @@ matrix:
   - language: android
     android:
       components:
-        - build-tools-22.0.1
-        - android-22
-        - extra
-        - addon
-        - sys-img-armeabi-v7a-android-22
+      - build-tools-22.0.1
+      - android-22
+      - extra
+      - addon
+      - sys-img-armeabi-v7a-android-22
     before_install:
-      - mkdir /home/travis/screenshots/
-      - export PATH=$PATH:$JAVA_HOME/bin
-      - export ANDROID_HOME=/usr/local/android-sdk/
-      - nvm install 6
+    - mkdir /home/travis/screenshots/
+    - export PATH=$PATH:$JAVA_HOME/bin
+    - export ANDROID_HOME=/usr/local/android-sdk/
+    - nvm install 6
     before_script:
-      - npm install -g appium
-      - npm install -g appium-doctor
-      - appium-doctor
-      - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
-      - emulator -avd testEmu2 -no-skin -no-audio -no-window &
-      - android-wait-for-emulator
-      - adb shell input keyevent 82 &
-      - appium &
+    - npm install -g appium
+    - npm install -g appium-doctor
+    - appium-doctor
+    - echo no | android create avd --force -n testEmu2 -t android-22 --abi armeabi-v7a
+    - emulator -avd testEmu2 -no-skin -no-audio -no-window &
+    - android-wait-for-emulator
+    - adb shell input keyevent 82 &
+    - appium &
     script:
-      - mvn clean test
-      - ls /home/travis/screenshots/ -a
-      - cp target/surefire-reports/emailable-report.html /home/travis/screenshots/
-      - gzip -r /home/travis/screenshots/
-    deploy:
-      provider: releases
-      api_key: "f9238b107e62ac92c3ba1fe620b800b49e9f4df7"
-      file_glob: true
-      file: "/home/travis/screenshots/*"
-      skip_cleanup: true
-      on:
-        tags: true 
+    - mvn clean test
+    - ls /home/travis/screenshots/ -a
+    - cp target/surefire-reports/emailable-report.html /home/travis/screenshots/
+    - gzip -r /home/travis/screenshots/
 notifications:
   email:
-    - gabriel@cbqasolutions.com
+  - gabriel@cbqasolutions.com
+deploy:
+  provider: releases
+  api_key:
+    secure: Zs39VnrRuHB7cBVGgM/dz9Yn+UQGy04kNCTz7R+IAYVRDJZqyTA2LjfDxSs4Yheqrqr04y9uFcdH9vh+5wPSdU9x1eYjB3Y3YO1NFfO6fv+ODwDVF/UXVODtO2YXbmFGs3S1y5DGp+i3t42g/wIfOWKtd9KJrGg5IAKOJZU8Bf5fjMZOXI5WIbBSxdCmSEBoBkOhmfZtO+v7DSLd8b1DO0iobjbpSEDfb2adQagpfIWF/tO+l62XByletJNk3dXf+tSqVLA/cQ/EtifoG5cBwo8lAnxmf175yNFSwYar1HGd/UB/6OtaYud9fR7mUWnZd7DYN2uAb2bcy1TnD5MNSzOGrWzosTyfFTphOQBGELtFl663SkHIoWRz+vQQjwr51LoepDie2yjHzC8Ws0br7eQPYAyaeim37uwbzIX/49Jw/ILIeaez3if1u5xN0Yu7m5avfvWGkXxvcZMFBtnmsUahctPx8ztCNNEcgl9F74RfDYR5GiYrsbpAmewOIi8/3XcjVrIBqeZXSGnxg9J5tsg8JmSfp3W5ZjNySt2BzOQvCHuroslMMiDeKIPMZXSt3VkS0wAKJp7w9t2vhCUqZuNhaT5qaDnkMTXtWdmN2SAWTTm0f/JFYbmiVOVaKvmvlgXcrQpaNeXU/uc5aDwEDlZZP0UNRwGMoR/pyxaoLfM=
+  file: /home/travis/screenshots/*
+  on:
+    repo: gabriel-cbqa/app-automation-test
