@@ -30,10 +30,9 @@ matrix:
     deploy:
       provider: releases
       api_key: cb4f40eee4d81ccff41361badab2f447e58ec2e8
-      file: /home/travis/screenshots.zip
+      file_glob: true
+      file: /home/travis/screenshots/*
       skip_cleanup: true
-      on:
-        tags: true
 notifications:
   email:
     - gabriel@cbqasolutions.com
