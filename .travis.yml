@@ -34,7 +34,7 @@ deploy:
   provider: releases
   api_key:
     secure: Zs39VnrRuHB7cBVGgM/dz9Yn+UQGy04kNCTz7R+IAYVRDJZqyTA2LjfDxSs4Yheqrqr04y9uFcdH9vh+5wPSdU9x1eYjB3Y3YO1NFfO6fv+ODwDVF/UXVODtO2YXbmFGs3S1y5DGp+i3t42g/wIfOWKtd9KJrGg5IAKOJZU8Bf5fjMZOXI5WIbBSxdCmSEBoBkOhmfZtO+v7DSLd8b1DO0iobjbpSEDfb2adQagpfIWF/tO+l62XByletJNk3dXf+tSqVLA/cQ/EtifoG5cBwo8lAnxmf175yNFSwYar1HGd/UB/6OtaYud9fR7mUWnZd7DYN2uAb2bcy1TnD5MNSzOGrWzosTyfFTphOQBGELtFl663SkHIoWRz+vQQjwr51LoepDie2yjHzC8Ws0br7eQPYAyaeim37uwbzIX/49Jw/ILIeaez3if1u5xN0Yu7m5avfvWGkXxvcZMFBtnmsUahctPx8ztCNNEcgl9F74RfDYR5GiYrsbpAmewOIi8/3XcjVrIBqeZXSGnxg9J5tsg8JmSfp3W5ZjNySt2BzOQvCHuroslMMiDeKIPMZXSt3VkS0wAKJp7w9t2vhCUqZuNhaT5qaDnkMTXtWdmN2SAWTTm0f/JFYbmiVOVaKvmvlgXcrQpaNeXU/uc5aDwEDlZZP0UNRwGMoR/pyxaoLfM=
-  file: /home/travis/screenshots/*
+  file: /home/travis/screenshots.zip
   on:
     repo: gabriel-cbqa/app-automation-test
     all_branches: true
