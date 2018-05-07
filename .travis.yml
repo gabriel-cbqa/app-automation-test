@@ -27,19 +27,18 @@ matrix:
     - appium &
     script:
     - mvn clean test
-    - ls screenshots/ -a 
+    - ls screenshots/ -a
     - cp -r screenshots/ /home/travis/$CURRENT_FOLDER
-    - cp target/surefire-reports/emailable-report.html /home/travis/$CURRENT_FOLDER
-    - gzip -r /home/travis/$CURRENT_FOLDER
-    #scp goes here
 notifications:
   email:
   - gabriel@cbqasolutions.com
 deploy:
-  provider: releases
-  api_key:
-    secure: Zs39VnrRuHB7cBVGgM/dz9Yn+UQGy04kNCTz7R+IAYVRDJZqyTA2LjfDxSs4Yheqrqr04y9uFcdH9vh+5wPSdU9x1eYjB3Y3YO1NFfO6fv+ODwDVF/UXVODtO2YXbmFGs3S1y5DGp+i3t42g/wIfOWKtd9KJrGg5IAKOJZU8Bf5fjMZOXI5WIbBSxdCmSEBoBkOhmfZtO+v7DSLd8b1DO0iobjbpSEDfb2adQagpfIWF/tO+l62XByletJNk3dXf+tSqVLA/cQ/EtifoG5cBwo8lAnxmf175yNFSwYar1HGd/UB/6OtaYud9fR7mUWnZd7DYN2uAb2bcy1TnD5MNSzOGrWzosTyfFTphOQBGELtFl663SkHIoWRz+vQQjwr51LoepDie2yjHzC8Ws0br7eQPYAyaeim37uwbzIX/49Jw/ILIeaez3if1u5xN0Yu7m5avfvWGkXxvcZMFBtnmsUahctPx8ztCNNEcgl9F74RfDYR5GiYrsbpAmewOIi8/3XcjVrIBqeZXSGnxg9J5tsg8JmSfp3W5ZjNySt2BzOQvCHuroslMMiDeKIPMZXSt3VkS0wAKJp7w9t2vhCUqZuNhaT5qaDnkMTXtWdmN2SAWTTm0f/JFYbmiVOVaKvmvlgXcrQpaNeXU/uc5aDwEDlZZP0UNRwGMoR/pyxaoLfM=
-  file: /home/travis/screenshots.zip
+  provider: s3
+  access_key_id: AKIAJ6D7R2ZC4K37ZHXQ
+  secret_access_key:
+    secure: ce1jXMB/VPnmnpyE635AeJHW1rF8uU8UfERuJxPSFbli3lHrtOYRFjR6arvZP+nbrilCzT24wiPXA6RoEDk2GEzkUbUIvjlNk+4M69YIDeDVA7CR+kb02rTqfRUC55StsueVyQweglKzkUrKJeZwg2wST0uq/vfzGf+bcudQA1ddwHERKDcje9V3F4LQZhj3OBaLDfcPRh8ut36wjpyhZjPLnFcJg/wcGWIAi3IKu5FvbaSzwyGtBC4z2tecpBfeBsjw3SbqyWCo1UkWlXHfivtIrtXDAt6c/5RiHPYgYxAyqEa9HEapK9vDos48DTCZ3MrnX1R/mEzeJeLJ+ejf6BAUSFL99UMyheNvkyi4ksW4va+mtGT+zndoteph3Z6IWwkuRSAWq4zLGCDCvcG2A3DSNz+uXIUoIfCnCRzRKJjSGKAqCCgv3VYeJ1wKSK1XhsJ0JchPH9Q98/4e108+70Sf4n87pJ9kVW37wI5WJ/2B14DL0cRGxjMbtRJP3ZQ3ojTRz3lkeGL4wgphztYlj0zW0uOSo9eKOYth7LoCE2QCp15DlbN/oIMtGsCLbj8x5XchyBmeuGLpKxtQPXngdFdP1u6a1EJIE9wsrWXS/Zypjs7xeiLdw6V/8JVTany8RTyfZox4Z0u+KCkcpeg0JXjf3Z6UVVUgcIw9FS5od+8=
+  bucket: travis-demo
+  acl: public_read
+  skip_cleanup: true
   on:
     repo: gabriel-cbqa/app-automation-test
-    all_branches: true
