@@ -29,6 +29,7 @@ matrix:
     - mvn clean test
     - ls screenshots/ -a
     - cp -r screenshots/ /home/travis/$CURRENT_FOLDER
+    - date
 notifications:
   email:
   - gabriel@cbqasolutions.com
