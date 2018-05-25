@@ -3,7 +3,7 @@ matrix:
   - language: android
     android:
       components:
-      - build-tools-22.0.1
+      - build-tools-27.0.1
       - android-22
       - extra
       - addon
