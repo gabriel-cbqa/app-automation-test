@@ -25,8 +25,10 @@ public class AndroidSetup {
         //capabilities.setCapability("appPackage","io.appium.android.apis");
         capabilities.setCapability("app", app.getAbsolutePath());
         capabilities.setCapability("skipUnlock", true);
+        capabilities.setCapability("automationName", "uiautomator2");
         //capabilities.setCapability("appActivity",".MainActivity");
         driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), capabilities);
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+        
     }
 }
