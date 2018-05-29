@@ -10,10 +10,6 @@ matrix:
       - apkanalyzer
       - sys-img-armeabi-v7a-android-24
     before_install:
-    - mkdir /home/travis/screenshots/
-    - export DATE=`date`
-    - export CURRENT_FOLDER="release $DATE"
-    - mkdir /home/travis/$CURRENT_FOLDER
     - export PATH=$PATH:$JAVA_HOME/bin
     - export ANDROID_HOME=/usr/local/android-sdk/
     - nvm install 8
@@ -28,9 +24,6 @@ matrix:
     - appium &
     script:
     - mvn clean test
-    - ls screenshots/ -a
-    - cp -r screenshots/ /home/travis/$CURRENT_FOLDER
-    - date
 notifications:
   email:
   - gabriel@cbqasolutions.com
