@@ -36,7 +36,7 @@ public class MainListener implements ITestListener
 
     public void onTestStart(ITestResult iTestResult)
     {
-        takeScreenshot(iTestResult);
+        //takeScreenshot(iTestResult);
     }
 
     public void onTestSuccess(ITestResult iTestResult) {
@@ -45,7 +45,7 @@ public class MainListener implements ITestListener
 
     public void onTestFailure(ITestResult iTestResult)
     {
-        takeScreenshot(iTestResult);
+       // takeScreenshot(iTestResult);
     }
 
     public void onTestSkipped(ITestResult iTestResult) {
